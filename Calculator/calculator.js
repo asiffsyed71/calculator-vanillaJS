@@ -3,6 +3,7 @@ let total = 0;
 let previousOperator = null;
 let screenValue = document.querySelector(".screen");
 
+//Adding event listners to container that contains buttons during initialisation
 (function init() {
   document
     .querySelector(".calc-buttons")
@@ -11,17 +12,16 @@ let screenValue = document.querySelector(".screen");
     );
 })();
 
+//checks if number is clicked or operator and calls respective function
 function buttonClick(value) {
   if (isNaN(value)) {
     handleOperatorClick(value);
-    console.log("handleoperation buffer", buffer);
   } else {
     handleNumberClick(value);
-    console.log("handleoNumner buffer", buffer);
   }
   screenValue.innerText = buffer;
 }
-
+//updates buffer with the entered number
 function handleNumberClick(numberString) {
   if (buffer === "0") {
     buffer = numberString;
@@ -29,6 +29,7 @@ function handleNumberClick(numberString) {
     buffer += numberString;
   }
 }
+//gets triggered when operator is clicked
 function handleOperatorClick(symbolVal) {
   switch (symbolVal) {
     case "clear":
@@ -55,6 +56,7 @@ function handleOperatorClick(symbolVal) {
 
   handleMath(symbolVal);
 }
+//updates total by calling flushOperation and updates previousOperator when symbol is clicked
 function handleMath(symbolVal) {
   if (buffer === "0") {
     return;
@@ -68,7 +70,11 @@ function handleMath(symbolVal) {
   previousOperator = symbolVal;
   clearData(true);
 }
+// Logic for mathematical operation to update total running calculation
 function flushOperation(intBuffer) {
+  if (!previousOperator) {
+    return;
+  }
   switch (previousOperator) {
     case "add":
       total += intBuffer;
@@ -82,8 +88,11 @@ function flushOperation(intBuffer) {
     case "divide":
       total /= intBuffer;
       break;
+    default:
+      break;
   }
 }
+//clears data on screen and internal state
 function clearData(screen, data = false) {
   if (screen) {
     buffer = "0";
