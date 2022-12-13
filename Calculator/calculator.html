@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/calculator.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="screen">0</section>
+
+      <section class="calc-buttons">
+        <div class="calc-button-row">
+            <button data-buttonVal="clear" class="calc-button double">C</button>
+            <button data-buttonVal="delete" class="calc-button">&larr;</button>
+          <button data-buttonVal="divide"class="calc-button">&divide;</button>
+        </div>
+        <div class="calc-button-row">
+          <button data-buttonVal="7" class="calc-button">7</button
+          ><button data-buttonVal="8" class="calc-button">8</button
+          ><button data-buttonVal="9" class="calc-button">9</button
+          ><button data-buttonVal="multiply" class="calc-button">&times;</button>
+        </div>
+        <div class="calc-button-row">
+          <button data-buttonVal="4" class="calc-button">4</button
+          ><button data-buttonVal="5" class="calc-button">5</button
+          ><button data-buttonVal="6" class="calc-button">6</button
+          ><button data-buttonVal="subtract" class="calc-button">&minus;</button>
+        </div>
+        <div class="calc-button-row">
+          <button data-buttonVal="1" class="calc-button">1</button
+          ><button data-buttonVal="2" class="calc-button">2</button
+          ><button data-buttonVal="3" class="calc-button">3</button
+          ><button data-buttonVal="add" class="calc-button">&plus;</button>
+        </div>
+        <div class="calc-button-row">
+            <button data-buttonVal="0" class="calc-button triple">0</button>
+          <button data-buttonVal="equals" class="calc-button">&equals;</button>
+        </div>
+      </section>
+    </div>
+    <script src="./calculator.js"></script>
+  </body>
+</html>
